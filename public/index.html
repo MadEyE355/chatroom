@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Input</title>
+    <style>
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        input {
+            text-align: center;
+            display: inline-block;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form id="nameForm">
+            <input type="text" id="name" placeholder="Enter your name" name="name" required><br>
+            <input type="submit" id="button" value="Submit">
+        </form>
+    </div>
+    <script>
+        const form = document.getElementById('nameForm');
+        
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent the default form submission
+            
+            const name = document.getElementById('name').value; // Get the name input value
+            
+            // Navigate to the chat page with the name as a query parameter
+            window.location.href = `/chat?name=${encodeURIComponent(name)}`;
+        });
+    </script>
+</body>
+</html>

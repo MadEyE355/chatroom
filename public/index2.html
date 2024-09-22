@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chatroom</title>
+    <style>
+        /* body{background-color: black;} */
+        body, html {
+            height: 100%;
+            margin: 0;
+            position: relative;
+            overflow: hidden; /* Prevents scrollbars from appearing */
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://c02.purpledshub.com/uploads/sites/48/2021/04/what-are-stars.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            filter: blur(1px); /* Adjust the blur value as needed */
+            z-index: -1; /* Send the background behind other content */
+        }
+
+
+        #holder {
+            height: 100vh;
+            color:white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        input {
+            height:20px;
+            position: relative;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="holder">
+        <form id="nameForm" action="/enter-chat" method="POST">
+            <input type="text" name="name" id="name" placeholder="Enter your name..." required>
+        </form>
+        <button onclick="enter()">Enter</button>
+    </div>
+    <script>
+       
+    </script>
+    
+</body>
+
+</html>
