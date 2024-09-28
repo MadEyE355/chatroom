@@ -1,2 +1,0 @@
-hi connectedmessage: hi
-hi connected

@@ -10,6 +10,9 @@ const io = new Server(server);
 let userName 
 let log = path.join(__dirname, 'log.txt');
 
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.get('/', (req, res) => {
     res.sendFile(join(__dirname, 'public', 'index.html'));
 });
@@ -34,13 +37,13 @@ io.on('connection', (socket) => {
 
     socket.on('chat message', (msg) => {
         console.log('message: ' + msg);
-        fs.appendFile(log, `message: ${msg}\n`, (err) => {});
+        fs.appendFile(log, `${userName}: ${msg}\n`, (err) => {});
         
         // Emit the message with the user's name
         io.emit('chat message', { name: userName, message: msg });
     });
 });
 
-server.listen(3000, '0.0.0.0', () => {
+server.listen( '0.0.0.0', () => {
     console.log('server running at http://localhost:3000');
 });
