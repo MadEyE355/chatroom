@@ -1,6 +1,13 @@
 {
-    "rewrites": [
-      { "source": "/chat", "destination": "/api/chat" }
-    ]
-  }
-  
+  "routes":[
+    {
+      "src": "/",
+      "dest": "/"
+    },
+    {
+      
+      "src": "/chat",
+      "dest": "/"
+    }
+  ]
+}
